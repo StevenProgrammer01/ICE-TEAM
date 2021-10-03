@@ -30,17 +30,33 @@ def calc(Lista):
 Liberia = 27
 Nicoya = 35
 SantaCruz = 40
+Belen = 39
+Sardinal = 41
+Hojancha = 29
 
-Lugar = input("Agregue el lugar del que quieres saber: ")
+Lugar = input("Agregue el distrito guanacasteco del que quieres saber: ")
+Lugar = Lugar.lower()
 
-Lista = [Liberia, Nicoya, SantaCruz]
 
-if Lugar == "Liberia":
+Lista = [Liberia, Nicoya, SantaCruz, Belen, Sardinal, Hojancha]
+
+if Lugar == "liberia":
     calc(Lista[0])
 
-elif Lugar == "Nicoya":
+elif Lugar == "nicoya":
     calc(Lista[1])
-elif Lugar == "Santa Cruz":
+
+elif Lugar == "santa cruz":
     calc(Lista[2])
+
+elif Lugar == "belen":
+    calc(Lista[3])
+
+elif Lugar == "sardinal":
+    calc(Lista[4])
+
+elif Lugar == "hojancha":
+    calc(Lista[5])
+
 else:
-    print("Lo sentimos el lugar que ingreso no está disponible")
+    print("Lo sentimos el lugar que ingreso no está disponible, o escriba el nombre correctamente")
