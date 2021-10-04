@@ -3,14 +3,14 @@
 import ast
 import urllib.request
 
-def temperatura_ciudad(id_ciudad):
+def temperatura_ciudad(id_ciudad): # Función para sacar datos de la API
     URL_weather = "http://api.openweathermap.org/data/2.5/weather?id="+str(id_ciudad)+"&appid=a0a54f12f7002192685452906efbb8ba"
     weather_data = urllib.request.urlopen(URL_weather).read()
     weather_data = ast.literal_eval(weather_data.decode('utf-8'))
     return weather_data["main"]["temp"]-273.15
 
 def Recomendacion(temp): #Función para determinar el nivel de estrés térmico
-    if temp >= 40.0:
+    if temp >= 40.0: #Grados Celsius
         print(Lugar0, "Esta en condición Roja de acuerdo a la escala de estrés térmico con una temperatura de=",'%.1f' %temp,"C \n"
                      "Le recomendamos seguir estas medidas:\n"
                      "No estar más de 30 minutos bajo el sol\n"
@@ -36,7 +36,7 @@ def Recomendacion(temp): #Función para determinar el nivel de estrés térmico
                      "Recuerde que las horas más calientes son al medio día")
 
 
-Liberia = 3623076 #Lista ciudades
+Liberia = 3623076 #Lista ciudades por código para buscar en API
 Nicoya = 3622716
 SantaCruz = 3621607
 Belen = 3624718
@@ -51,7 +51,7 @@ Lugar = Lugar.replace(" ", "")
 
 Lista = [Liberia, Nicoya, SantaCruz, Belen, Sardinal, Hojancha, Bagaces, Cañas]
 
-
+#Lista de if donde integro las funciones y las ejecuto
 
 if Lugar == "liberia":
     Recomendacion(temperatura_ciudad(Lista[0],))
